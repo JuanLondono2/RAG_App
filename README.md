@@ -97,10 +97,11 @@ NLP_Taller_RAG/
 |---|---|---|
 | Lectura de PDFs | pypdf | ≥4.0.0 |
 | Embeddings | sentence-transformers | ≥2.7.0 |
-| Modelo de embeddings | paraphrase-multilingual-MiniLM-L12-v2 | — |
+| Modelo de embeddings | paraphrase-multilingual-MiniLM-L12-v2 | 118M params, 384-dim |
 | Búsqueda vectorial | FAISS (faiss-cpu) | ≥1.8.0 |
-| Modelo generativo | Qwen/Qwen2.5-0.5B-Instruct | — |
+| Modelo generativo | Qwen/Qwen2.5-0.5B-Instruct | ~500M params |
 | Framework de modelos | HuggingFace Transformers | ≥4.40.0 |
+| Aceleración GPU | PyTorch + CUDA | ≥2.5.1+cu121 |
 | Procesamiento numérico | NumPy, scikit-learn | ≥1.26.0 |
 | Visualización | Matplotlib, Seaborn | ≥3.8.0 |
 
@@ -110,8 +111,9 @@ NLP_Taller_RAG/
 
 ### Requisitos previos
 
-- Python 3.12+
-- ~4 GB de RAM (sin GPU) · ~2 GB si se usa GPU
+- Python 3.10+
+- ~4 GB de RAM
+- **GPU (opcional pero recomendado):** NVIDIA con CUDA 11.x o superior. Probado en GTX 1650 Ti (4 GB VRAM). El notebook detecta automáticamente si hay GPU disponible y carga los modelos en `cuda` o `cpu` según corresponda.
 
 ### Instalación
 
