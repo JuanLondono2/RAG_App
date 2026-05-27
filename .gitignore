@@ -1,8 +1,11 @@
 # Claude Code
 .claude/
 
-# Sugerencias internas
+# Archivos internos / produccion de video
 SUGERENCIAS_NOTEBOOK.txt
+ANALISIS_GUION.txt
+STORYBOARD_VIDEO.txt
+Guion Video Rag 6minutos.pdf
 
 # Python
 __pycache__/
