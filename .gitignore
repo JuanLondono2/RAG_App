@@ -1,0 +1,25 @@
+# Claude Code
+.claude/
+
+# Sugerencias internas
+SUGERENCIAS_NOTEBOOK.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# FAISS / índices generados
+faiss_index.bin
+chunks_metadata.pkl
+
+# OS
+.DS_Store
+Thumbs.db
