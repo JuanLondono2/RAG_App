@@ -173,19 +173,25 @@ Cada chunk se convierte en un vector de 384 dimensiones usando `paraphrase-multi
 
 ### Evaluación de Recuperación (Retrieval)
 
-Se diseñaron 5 preguntas de prueba con palabras clave esperadas verificables en el corpus.
+Se diseñaron 5 preguntas de prueba con palabras clave esperadas verificables en el corpus. Las métricas se calculan con chunking semántico por límites de oración (versión actual).
 
-| # | Pregunta (resumida) | Keywords esperadas | Recall@5 |
-|---|---|---|---|
-| 1 | Importancia del sector minero-energético para la economía | 7%, PIB, 34%, IED, 56%, exportaciones | 1.0 |
-| 2 | Porcentaje de exportaciones del sector en 2019 | 56%, exportaciones | 1.0 |
-| 3 | Principales sectores de consumo de energía | transporte, industrial, residencial | 1.0 |
-| 4 | Objetivo del Plan Energético Nacional 2020-2050 | modelo energético, sostenible, 2050 | 1.0 |
-| 5 | Fuentes de energía con mayor participación futura | energías renovables, solar fotovoltaica | 1.0 |
+| # | Pregunta (resumida) | Keywords esperadas | Recall@5 | Precision@5 | MRR@5 |
+|---|---|---|---|---|---|
+| 1 | Importancia del sector minero-energético para la economía | 7%, PIB, 34%, IED, 56%, exportaciones | 1.0 | 0.60 | 1.0 |
+| 2 | Porcentaje de exportaciones del sector en 2019 | 56%, exportaciones | 1.0 | 0.40 | 1.0 |
+| 3 | Principales sectores de consumo de energía | transporte, industrial, residencial | 1.0 | 0.60 | 1.0 |
+| 4 | Objetivo del Plan Energético Nacional 2020-2050 | modelo energético, sostenible, 2050 | 1.0 | 0.40 | 1.0 |
+| 5 | Fuentes de energía con mayor participación futura | energías renovables, solar fotovoltaica | 0.0 | 0.40 | 0.0 |
 
-**Recall@5 global: 1.0 (100%)**
+| Métrica | Valor |
+|---|---|
+| **Recall@5** | **0.80** |
+| **Precision@5** | **0.56** |
+| **MRR@5** | **0.80** |
 
-El componente de recuperación demostró excelente rendimiento. Los embeddings multilingüe capturan correctamente la semántica de preguntas técnicas en español.
+> El chunking semántico (por límites de oración) mejoró la coherencia interna de los fragmentos respecto al chunking por palabras original, pero redistribuyó las fronteras de algunos chunks. La pregunta 5 dejó de recuperar la keyword "solar fotovoltaica" en el top-5, lo que redujo el Recall global de 1.0 a 0.80.
+
+El componente de recuperación muestra buen rendimiento general. Los embeddings multilingüe capturan correctamente la semántica de preguntas técnicas en español.
 
 ### Evaluación de Generación
 
